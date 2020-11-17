@@ -1,10 +1,11 @@
 import React from 'react';
+import MainWrapper from '@components/MainWrapper';
 
 const Home = () => {
   return (
     <div>
       <main>
-        <h1>hello world</h1>
+        <MainWrapper />
       </main>
     </div>
   );
