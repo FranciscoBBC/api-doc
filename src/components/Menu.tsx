@@ -3,7 +3,16 @@ import SearchIput from '@components/SearchInput';
 import ApiRoutes from '@components/ApiRoutes';
 
 const Menu = () => {
-  const [routes, setRoutes] = React.useState(['/user', '/coupon', '/invoice']);
+  const mock = [
+    {
+      group: 'authentication',
+      link: ['create', 'update', 'delete']
+    },
+    {
+      link: ['introduction']
+    }
+  ];
+  const [routes, setRoutes] = React.useState(mock);
   return (
     <div className="p-4">
       <div className="border-b">

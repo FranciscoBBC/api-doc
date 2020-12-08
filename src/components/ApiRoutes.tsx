@@ -7,11 +7,27 @@ const ApiRoutes = ({ routes }: ApiRoutesModel) => {
 
     return (
       <ul>
-        {apiRoutes.map((val, key) => (
-          <li data-testid={val} key={val}>
-            {val}
-          </li>
-        ))}
+        {routes.map(val => {
+          if (val.group) {
+            return (
+              <li key={Math.random()} data-testid="list-group">
+                {val.group}
+                <ul key={Math.random()}>
+                  {val.link.map(link => (
+                    <li key={Math.random()} data-testid="list-item">
+                      {link}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            );
+          }
+          return val.link.map(link => (
+            <li key={Math.random()} data-testid="list-item">
+              {link}
+            </li>
+          ));
+        })}
       </ul>
     );
   };

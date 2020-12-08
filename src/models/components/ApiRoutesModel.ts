@@ -1,5 +1,10 @@
+interface route {
+  group?: string;
+  link: string[];
+}
+
 interface ApiRoutesModel {
-  routes: string[];
+  routes: route[];
 }
 
 export default ApiRoutesModel;
