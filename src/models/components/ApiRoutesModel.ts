@@ -4,7 +4,7 @@ interface route {
 }
 
 interface ApiRoutesModel {
-  routes: route[];
+  routes?: route[];
 }
 
 export default ApiRoutesModel;

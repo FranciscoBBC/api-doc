@@ -5,11 +5,15 @@ import ApiRoutes from '@components/ApiRoutes';
 const Menu = () => {
   const mock = [
     {
-      group: 'authentication',
+      group: 'user',
       link: ['create', 'update', 'delete']
     },
     {
       link: ['introduction']
+    },
+    {
+      group: 'product',
+      link: ['list', 'category']
     }
   ];
   const [routes, setRoutes] = React.useState(mock);
