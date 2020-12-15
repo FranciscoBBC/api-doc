@@ -6,14 +6,69 @@ const Menu = () => {
   const mock = [
     {
       group: 'user',
-      link: ['create', 'update', 'delete']
+      link: [
+        {
+          name: 'create',
+          description: 'create a user',
+          params: {
+            userName: 'string',
+            email: 'string',
+            password: 'string'
+          },
+          requestExample: ''
+        },
+        {
+          name: 'update',
+          description: 'update a user',
+          params: {
+            userName: 'string',
+            email: 'string',
+            password: 'string'
+          },
+          requestExample: ''
+        },
+        {
+          name: 'delete',
+          description: 'delete a user',
+          params: {
+            email: 'string'
+          },
+          requestExample: ''
+        }
+      ]
     },
     {
-      link: ['introduction']
+      link: [
+        {
+          name: 'store',
+          description: 'list stores',
+          params: {
+            storeName: 'string'
+          },
+          requestExample: ''
+        }
+      ]
     },
     {
       group: 'product',
-      link: ['list', 'category']
+      link: [
+        {
+          name: 'getProduct',
+          description: 'return a list of products',
+          params: {
+            productName: 'string'
+          },
+          requestExample: ''
+        },
+        {
+          name: 'deleteProduct',
+          description: 'delete a product',
+          params: {
+            productName: 'string'
+          },
+          requestExample: ''
+        }
+      ]
     }
   ];
   const [routes, setRoutes] = React.useState(mock);
