@@ -94,6 +94,8 @@ describe('testing ApiRoutes.tsx', () => {
     render(<ApiRoutes routes={mock} />);
 
     const wrapper = screen.getByTestId('items-wrapper');
-    expect(wrapper.innerHTML.length === 0).toBeTruthy();
+
+    expect(wrapper.childElementCount === 1).toBeTruthy();
+    expect(wrapper.firstChild.type).toEqual('button');
   });
 });
