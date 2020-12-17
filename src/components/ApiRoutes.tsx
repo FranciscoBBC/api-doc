@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsArrowRight } from 'react-icons/bs';
+import { BsArrowRight, BsPlus } from 'react-icons/bs';
 import ApiRoutesModel from '@models/components/ApiRoutesModel';
 
 const ApiRoutes: React.FC<ApiRoutesModel> = ({ routes }: ApiRoutesModel) => {
@@ -30,7 +30,7 @@ const ApiRoutes: React.FC<ApiRoutesModel> = ({ routes }: ApiRoutesModel) => {
                 </div>
                 <ul
                   key={Math.random()}
-                  className={`mx-3 transition duration-500 ease-in-out ${
+                  className={`mx-3 ${
                     menuColapse.includes(val.group) ? 'block' : ' hidden'
                   }`}
                 >
@@ -76,6 +76,13 @@ const ApiRoutes: React.FC<ApiRoutesModel> = ({ routes }: ApiRoutesModel) => {
           }
           return null;
         })}
+        <button
+          type="button"
+          className="py-3 px-3 mt-2 text-white bg-gradient-to-r from-oceanBlue to-oceanBlueL cursor-pointer rounded-md flex justify-between items-center w-full"
+        >
+          add new
+          <BsPlus className="text-xl" />
+        </button>
       </ul>
     );
   };
