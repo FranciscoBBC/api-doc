@@ -12,6 +12,7 @@ interface Route {
 
 interface ApiRoutesModel {
   routes?: Route[];
+  handleChange: (val: string) => null;
 }
 
 export default ApiRoutesModel;

@@ -2,7 +2,10 @@ import React from 'react';
 import { BsArrowRight, BsPlus } from 'react-icons/bs';
 import ApiRoutesModel from '@models/components/ApiRoutesModel';
 
-const ApiRoutes: React.FC<ApiRoutesModel> = ({ routes }: ApiRoutesModel) => {
+const ApiRoutes: React.FC<ApiRoutesModel> = ({
+  routes,
+  handleChange
+}: ApiRoutesModel) => {
   const [menuColapse, setMenuColapse] = React.useState([]);
   const [selectMenu, setSelectMenu] = React.useState();
 
@@ -13,6 +16,11 @@ const ApiRoutes: React.FC<ApiRoutesModel> = ({ routes }: ApiRoutesModel) => {
       } else {
         setMenuColapse([...menuColapse, val]);
       }
+    };
+
+    const handleSelect = val => {
+      setSelectMenu(val.name);
+      handleChange(val.description);
     };
 
     if (!Array.isArray(apiRoutes)) return null;
@@ -43,7 +51,7 @@ const ApiRoutes: React.FC<ApiRoutesModel> = ({ routes }: ApiRoutesModel) => {
                           ? 'bg-white text-oceanBlue shadow-sm'
                           : 'bg-transparent'
                       }`}
-                      onClick={() => setSelectMenu(link.name)}
+                      onClick={() => handleSelect(link)}
                     >
                       {link.name}
                       {selectMenu === link.name ? (
@@ -65,7 +73,7 @@ const ApiRoutes: React.FC<ApiRoutesModel> = ({ routes }: ApiRoutesModel) => {
                     ? 'bg-white text-oceanBlue shadow-sm'
                     : 'bg-transparent'
                 }`}
-                onClick={() => setSelectMenu(link.name)}
+                onClick={() => handleSelect(link)}
               >
                 {link.name}
                 {selectMenu === link.name ? (
