@@ -1,5 +1,5 @@
 interface ContentModel {
-  data: string;
+  children: string;
 }
 
 export default ContentModel;
