@@ -1,7 +1,7 @@
-import React from 'react';
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import '../../styles/globals.css';
+import React from "react";
+import { AppProps } from "next/app";
+import Head from "next/head";
+import "../../styles/globals.css";
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
@@ -9,7 +9,9 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
       <Head>
         <title>api doc</title>
       </Head>
-      <Component {...pageProps} />
+      <div className="flex flex-wrap">
+        <Component {...pageProps} />
+      </div>
     </>
   );
 };

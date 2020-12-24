@@ -1,72 +1,72 @@
-import React from 'react';
-import SearchIput from '@components/SearchInput';
-import ApiRoutes from '@components/ApiRoutes';
+import React from "react";
+import SearchIput from "@components/SearchInput";
+import ApiRoutes from "@components/ApiRoutes";
 
 const Menu = ({ handleChange }: { handleChange: (val: string) => null }) => {
   const mock = [
     {
-      group: 'user',
+      group: "user",
       link: [
         {
-          name: 'create',
-          description: 'create a user',
+          name: "create",
+          description: "**create** a user",
           params: {
-            userName: 'string',
-            email: 'string',
-            password: 'string'
+            userName: "string",
+            email: "string",
+            password: "string"
           },
-          requestExample: ''
+          requestExample: ""
         },
         {
-          name: 'update',
-          description: 'update a user',
+          name: "update",
+          description: "update a user",
           params: {
-            userName: 'string',
-            email: 'string',
-            password: 'string'
+            userName: "string",
+            email: "string",
+            password: "string"
           },
-          requestExample: ''
+          requestExample: ""
         },
         {
-          name: 'delete',
-          description: 'delete a user',
+          name: "delete",
+          description: "delete a user",
           params: {
-            email: 'string'
+            email: "string"
           },
-          requestExample: ''
+          requestExample: ""
         }
       ]
     },
     {
       link: [
         {
-          name: 'store',
-          description: 'list stores',
+          name: "store",
+          description: "list stores",
           params: {
-            storeName: 'string'
+            storeName: "string"
           },
-          requestExample: ''
+          requestExample: ""
         }
       ]
     },
     {
-      group: 'product',
+      group: "product",
       link: [
         {
-          name: 'getProduct',
-          description: 'return a list of products',
+          name: "getProduct",
+          description: "**return** a list of products",
           params: {
-            productName: 'string'
+            productName: "string"
           },
-          requestExample: ''
+          requestExample: ""
         },
         {
-          name: 'deleteProduct',
-          description: 'delete a product',
+          name: "deleteProduct",
+          description: "delete a product",
           params: {
-            productName: 'string'
+            productName: "string"
           },
-          requestExample: ''
+          requestExample: ""
         }
       ]
     }
