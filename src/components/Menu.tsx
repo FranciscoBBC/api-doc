@@ -1,8 +1,10 @@
 import React from 'react';
 import SearchIput from '@components/SearchInput';
 import ApiRoutes from '@components/ApiRoutes';
+import MenuModel from '@models/components/MenuModel';
+import useSWR from 'swr';
 
-const Menu = ({ handleChange }: { handleChange: (val: string) => null }) => {
+const Menu: React.FC<MenuModel> = ({ handleChange }: MenuModel) => {
   const mock = [
     {
       group: 'user',
@@ -72,14 +74,19 @@ const Menu = ({ handleChange }: { handleChange: (val: string) => null }) => {
     }
   ];
 
-  const [routes, setRoutes] = React.useState(mock);
+  const [routes, setRoutes] = React.useState();
+  const { data } = useSWR('/api/getRoutes');
+
+  React.useEffect(() => {
+    setRoutes(data);
+  }, [data]);
 
   return (
     <div className="p-4">
       <div className="border-b">
         <h1 className="text-2xl font-medium text-gray-900">API DOC</h1>
       </div>
-      <SearchIput handleSearch={setRoutes} />
+      {/* <SearchIput handleSearch={setRoutes} /> */}
       <ApiRoutes routes={routes} handleChange={handleChange} />
     </div>
   );

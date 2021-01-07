@@ -7,53 +7,61 @@ describe('testing ApiRoutes.tsx', () => {
     it('testing group children rendering', () => {
       const mock = [
         {
-          group: 'user',
-          link: [
-            {
-              name: 'create',
-              description: 'create a user',
-              params: {
-                userName: 'string',
-                email: 'string',
-                password: 'string'
+          id: '12345',
+          data: {
+            group: 'user',
+            link: [
+              {
+                name: 'create',
+                description: 'create a user',
+                params: {
+                  userName: 'string',
+                  email: 'string',
+                  password: 'string'
+                },
+                requestExample: ''
               },
-              requestExample: ''
-            },
-            {
-              name: 'update',
-              description: 'update a user',
-              params: {
-                userName: 'string',
-                email: 'string',
-                password: 'string'
+              {
+                name: 'update',
+                description: 'update a user',
+                params: {
+                  userName: 'string',
+                  email: 'string',
+                  password: 'string'
+                },
+                requestExample: ''
               },
-              requestExample: ''
-            },
-            {
-              name: 'delete',
-              description: 'delete a user',
-              params: {
-                email: 'string'
-              },
-              requestExample: ''
-            }
-          ]
+              {
+                name: 'delete',
+                description: 'delete a user',
+                params: {
+                  email: 'string'
+                },
+                requestExample: ''
+              }
+            ]
+          }
         },
         {
-          link: [
-            {
-              name: 'store',
-              description: 'list stores',
-              params: {
-                storeName: 'string'
-              },
-              requestExample: ''
-            }
-          ]
+          data: {
+            link: [
+              {
+                name: 'store',
+                description: 'list stores',
+                params: {
+                  storeName: 'string'
+                },
+                requestExample: ''
+              }
+            ]
+          },
+          id: '12345'
         }
       ];
 
-      render(<ApiRoutes routes={mock} />);
+      render(
+        <ApiRoutes routes={mock} handleChange={val => console.log(val)} />
+      );
       const listGroups = screen.getByTestId('list-group');
       const group = listGroups.getElementsByTagName('div');
       const groupItems = listGroups.getElementsByTagName('li');
@@ -69,20 +77,25 @@ describe('testing ApiRoutes.tsx', () => {
     it('testing single element', () => {
       const mock = [
         {
-          link: [
-            {
-              name: 'store',
-              description: 'list stores',
-              params: {
-                storeName: 'string'
-              },
-              requestExample: ''
-            }
-          ]
+          data: {
+            link: [
+              {
+                name: 'store',
+                description: 'list stores',
+                params: {
+                  storeName: 'string'
+                },
+                requestExample: ''
+              }
+            ]
+          },
+          id: '12345'
         }
       ];
 
-      render(<ApiRoutes routes={mock} />);
+      render(
+        <ApiRoutes routes={mock} handleChange={val => console.log(val)} />
+      );
       const item = screen.getByTestId('list-item');
 
       expect(item.innerHTML).toMatch('store');
@@ -91,7 +104,7 @@ describe('testing ApiRoutes.tsx', () => {
 
   it('without data', () => {
     const mock = [];
-    render(<ApiRoutes routes={mock} />);
+    render(<ApiRoutes routes={mock} handleChange={val => console.log(val)} />);
 
     const wrapper = screen.getByTestId('items-wrapper');
 

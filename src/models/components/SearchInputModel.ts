@@ -1,5 +1,5 @@
 interface SearchInputModel {
-  handleSearch: (val: string[]) => any;
+  handleSearch: (val: string[]) => void;
 }
 
 export default SearchInputModel;

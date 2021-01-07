@@ -24,25 +24,27 @@ const ApiRoutes: React.FC<ApiRoutesModel> = ({
     };
 
     if (!Array.isArray(apiRoutes)) return null;
+
     return (
       <ul data-testid="items-wrapper">
         {apiRoutes.map(val => {
-          if (val.group) {
+          const { data } = val;
+          if (data.group) {
             return (
               <li key={Math.random()} data-testid="list-group">
                 <div
                   className="py-3 px-3 cursor-pointer text-gray-700"
-                  onClick={() => renderSubMenu(menuColapse, val.group)}
+                  onClick={() => renderSubMenu(menuColapse, data.group)}
                 >
-                  {val.group}
+                  {data.group}
                 </div>
                 <ul
                   key={Math.random()}
                   className={`mx-3 ${
-                    menuColapse.includes(val.group) ? 'block' : ' hidden'
+                    menuColapse.includes(data.group) ? 'block' : ' hidden'
                   }`}
                 >
-                  {val.link.map(link => (
+                  {data.link.map(link => (
                     <li
                       key={Math.random()}
                       data-testid="list-item"
@@ -63,8 +65,8 @@ const ApiRoutes: React.FC<ApiRoutesModel> = ({
               </li>
             );
           }
-          if (val.link) {
-            return val.link.map(link => (
+          if (data.link) {
+            return data.link.map(link => (
               <li
                 key={Math.random()}
                 data-testid="list-item"

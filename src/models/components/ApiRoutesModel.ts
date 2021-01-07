@@ -10,9 +10,13 @@ interface Route {
   link: Link[];
 }
 
+interface Fauna {
+  id: string;
+  data: Route;
+}
 interface ApiRoutesModel {
-  routes?: Route[];
-  handleChange: (val: string) => null;
+  routes?: Fauna[];
+  handleChange: (val: string) => void;
 }
 
 export default ApiRoutesModel;
